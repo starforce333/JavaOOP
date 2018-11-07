@@ -1,0 +1,2 @@
+Cat{name='Barsik', breed='Scottish', age=3, weight=6.0, sex='male'}
+Cat{name='Murka', breed='Brittish', age=5, weight=5.0, sex='female'}
