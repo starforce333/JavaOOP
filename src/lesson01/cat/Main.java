@@ -12,7 +12,7 @@ public class Main {
         catOne.setBreed("Scottish");
         catOne.setAge(3);
         catOne.setWeight(6);
-        catOne.setSex("male");
+        catOne.setGender("male");
 
 
         Cat catTwo = new Cat("Murka", "Brittish", 5, 5, "female");

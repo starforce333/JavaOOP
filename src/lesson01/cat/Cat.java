@@ -5,7 +5,7 @@ public class Cat {
     private String breed;
     private int age;
     private double weight;
-    private String sex;
+    private String gender;
 
 
     public Cat(String name, String breed, int age, double weight, String sex) {
@@ -13,7 +13,7 @@ public class Cat {
         this.breed = breed;
         this.age = age;
         this.weight = weight;
-        this.sex = sex;
+        this.gender = gender;
     }
 
     public Cat() {
@@ -56,12 +56,12 @@ public class Cat {
         this.weight = weight;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String sex) {
+        this.gender = gender;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class Cat {
                 ", breed='" + breed + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +
-                ", sex='" + sex + '\'' +
+                ", sex='" + gender + '\'' +
                 '}';
     }
 }
