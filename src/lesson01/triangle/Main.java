@@ -8,7 +8,10 @@ public class Main {
 
 
         System.out.println(triOne.sqr());
+        System.out.println(triOne);
+        System.out.println();
         System.out.println(triTwo.sqr());
+        System.out.println(triTwo);
 
 
     }

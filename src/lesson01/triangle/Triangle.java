@@ -28,5 +28,10 @@ public class Triangle {
         square = Math.sqrt(per * (per - a) * (per - b) * (per - c));
         return square;
     }
-
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "square=" + square +
+                '}';
+    }
 }
