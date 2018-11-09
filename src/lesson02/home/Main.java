@@ -1,5 +1,7 @@
 package lesson02.home;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,6 +20,22 @@ public class Main {
         System.out.println();
         Shape spRou = round;
         System.out.println(spRou.getArea());
+
+        Board blackboard = new Board();
+
+        blackboard.putFigure(spRou);
+
+
+        blackboard.putFigure(spTri);
+
+
+        blackboard.putFigure(spSqr);
+
+        blackboard.putFigure(spSqr);
+
+        blackboard.removeFigure(spSqr);
+
+        System.out.println(blackboard);
 
 
     }
