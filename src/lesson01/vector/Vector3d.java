@@ -4,9 +4,6 @@ public class Vector3d {
     private double x;
     private double y;
     private double z;
-    private double[] addition;
-    private double[] scalar;
-    private double[] vector;
 
 
     public Vector3d(double x, double y, double z) {
@@ -17,56 +14,52 @@ public class Vector3d {
     public Vector3d() {
     }
 
-    public void addition(double ax, double bx, double ay, double by, double az, double bz) {
-        addition = new double[]{ax + bx, ay + by, az + bz};
+    public Vector3d addition(Vector3d a, Vector3d b) {
+        Vector3d res = new Vector3d();
+        res.setX(a.getX() + b.getX());
+        res.setY(a.getY() + b.getY());
+        res.setZ(a.getZ() + b.getZ());
+        return res;
     }
 
-    public void scalar(double ax, double bx, double ay, double by, double az, double bz) {
-        scalar = new double[]{ax * bx, ay * by, az * bz};
+    public double scalar(Vector3d a, Vector3d b) {
+        double res = a.getX() * b.getX() + a.getY() * b.getY() + a.getZ() * b.getZ();
+        return res;
     }
 
-    public void vector(double ax, double bx, double ay, double by, double az, double bz) {
-        vector = new double[]{ay*bz - az*by, az*bx - ax*bz, ax*by - ay*bx};
+    public Vector3d vector(Vector3d a, Vector3d b) {
+        Vector3d res = new Vector3d();
+        res.setX(a.getY() * b.getZ() - a.getZ() * b.getY());
+        res.setY(a.getZ() * b.getX() - a.getX() * b.getZ());
+        res.setZ(a.getX() * b.getY() - a.getY() * b.getX());
+        return res;
     }
 
-    public void setX(double x) {
-        this.x = x;
-    }
-    public void setY(double y) {
-        this.y = y;
-    }
-    public void setZ(double z) {
-        this.z = z;
-    }
     public double getX() {
         return x;
+    }
+    public void setX(double x) {
+        this.x = x;
     }
     public double getY() {
         return y;
     }
+    public void setY(double y) {
+        this.y = y;
+    }
     public double getZ() {
         return z;
     }
-    public double[] getAddition() {
-        return addition;
+    public void setZ(double z) {
+        this.z = z;
     }
-    public double[] getScalar() {
-        return scalar;
-    }
-    public double[] getVector() {
-        return vector;
+
+    @Override
+    public String toString() {
+        return "Vector3d{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                '}';
     }
 }
-
-
-//        3)  Описать  класс  «Vector3d»  (т. е.,  он  должен  описывать  вектор  в  трехмерной,
-//        декартовой  системе  координат).  В  качестве  свойств  этого  класса  возьмите
-//        координаты вектора. Для этого класса реализовать методы сложения,  скалярного и
-//        векторного  произведения  векторов.  Создайте  несколько  объектов  этого  класса  и
-//        протестируйте их.
-//        4) Опишите класс Phone (одним из свойств должен быть его номер). Также опишите
-//        класс  Network  (сеть  мобильного  оператора).  Телефон  должен  иметь  метод
-//        регистрации в сети мобильного оператора. Также у телефона должен быть метод call
-//        (номер другого телефона), который переберет все телефоны, зарегистрированные в
-//        сети.  Если  такой  номер  будет  найден,  то  осуществить  вызов,  если  нет  -  вывести
-//        сообщение об ошибочности набранного номера.
