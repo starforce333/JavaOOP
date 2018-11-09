@@ -37,12 +37,10 @@ public class Main {
 
     private static File writeToFile(File file, String str) {
         try (FileWriter writer = new FileWriter(file)) {
-
             writer.write(str);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return file;
     }
 }

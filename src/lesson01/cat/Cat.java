@@ -60,7 +60,7 @@ public class Cat {
         return gender;
     }
 
-    public void setGender(String sex) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -71,7 +71,7 @@ public class Cat {
                 ", breed='" + breed + '\'' +
                 ", age=" + age +
                 ", weight=" + weight +
-                ", sex='" + gender + '\'' +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 }
