@@ -1,6 +1,6 @@
 package lesson02.home;
 
-public abstract class Point extends Shape {
+public class Point {
 
     private double x;
     private double y;

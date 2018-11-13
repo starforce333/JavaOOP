@@ -1,13 +1,14 @@
 package lesson02.home;
 
-public class Square extends Point {
+public class Square extends Shape {
     private double a;
     private double b;
     private double c;
     private double d;
+    private Point forSqr = new Point();
 
-    public Square(double x, double y, double a, double b, double c, double d) {
-        super(x, y);
+    public Square(double a, double b, double c, double d) {
+
         this.a = a;
         this.b = b;
         this.c = c;
@@ -41,6 +42,11 @@ public class Square extends Point {
     public void setD(double d) {
         this.d = d;
     }
+
+    public Point getForSqr() {
+        return forSqr;
+    }
+
     @Override
     public double getArea() {
         double area = a * b;
@@ -52,4 +58,8 @@ public class Square extends Point {
         return per;
     }
 
+    @Override
+    public String toString() {
+        return "Square ";
+    }
 }

@@ -1,11 +1,11 @@
 package lesson02.home;
 
-public class Round extends Point {
+public class Round extends Shape {
     private double a;
     private double r;
+    private Point forRou = new Point();
 
-    public Round(double x, double y, double a, double r) {
-        super(x, y);
+    public Round(double a, double r) {
         this.a = a;
         this.r = r;
     }
@@ -36,4 +36,8 @@ public class Round extends Point {
         return per;
     }
 
+    @Override
+    public String toString() {
+        return "Round ";
+    }
 }
