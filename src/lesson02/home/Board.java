@@ -31,7 +31,7 @@ public class Board {
                 str += board[i];
             }
         }
-        System.out.println("Figures on te board: " + str);
+        System.out.println("Figures on the board: " + str);
     }
 
     public void areaBoard() {
