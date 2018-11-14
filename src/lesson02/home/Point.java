@@ -13,15 +13,24 @@ public class Point {
     public Point() {
     }
 
+    public double getDistance(double x, double y) {
+        double distance;
+        distance = x - y;
+        return distance;
+    }
+
     public double getX() {
         return x;
     }
+
     public void setX(double x) {
         this.x = x;
     }
+
     public double getY() {
         return y;
     }
+
     public void setY(double y) {
         this.y = y;
     }

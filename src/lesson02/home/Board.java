@@ -3,10 +3,6 @@ package lesson02.home;
 public class Board {
     Shape[] board = new Shape[4];
 
-    public Board(Shape[] board) {
-        this.board = board;
-    }
-
     public Board() {
     }
 

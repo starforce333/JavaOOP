@@ -3,6 +3,7 @@ package lesson02.home;
 public class Triangle extends Shape {
 
     private double a;
+//    private Point a;
     private double b;
     private double c;
     private Point forTri = new Point();
