@@ -24,23 +24,25 @@ public class Board {
         }
     }
 
-    public void showFigures() {
+    public String showFigures() {
         String str = "";
         for (int i = 0; i < board.length; i++) {
             if (board[i] != null) {
                 str += board[i];
             }
         }
-        System.out.println("Figures on the board: " + str);
+        System.out.println("Figures on the board: ");
+                return str;
     }
 
-    public void areaBoard() {
+    public double areaBoard() {
         double areaSum = 0;
         for (int i = 0; i < board.length; i++) {
             if (board[i] != null) {
                 areaSum += board[i].getArea();
             }
         }
-        System.out.println("The total area of figures on the board is: " + areaSum);
+        System.out.println("The total area of figures on the board is: ");
+        return areaSum;
     }
 }

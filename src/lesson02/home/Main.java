@@ -46,8 +46,8 @@ public class Main {
         blackboard.putFigure(round);
         blackboard.putFigure(tri);
 
-        blackboard.showFigures();
-        blackboard.areaBoard();
+        System.out.println(blackboard.showFigures());
+        System.out.println(blackboard.areaBoard());
 
     }
 }
