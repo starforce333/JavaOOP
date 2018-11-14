@@ -4,11 +4,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Square sqr = new Square(3, 4, 3, 4);
+        Point a = new Point(0, 2);
+        Point b = new Point(3, 4);
+        Point c = new Point(5, 8);
+        Point d = new Point(5, 7);
 
-        Triangle tri = new Triangle(5, 6, 7);
+        Square sqr = new Square(a, b, c, d);
 
-        Round round = new Round(3, 8);
+        Triangle tri = new Triangle(a, b, c);
+
+        Round round = new Round(a, b);
 
         System.out.println("Square");
         System.out.print("Area of sqr: ");

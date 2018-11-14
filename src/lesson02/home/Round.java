@@ -1,38 +1,38 @@
 package lesson02.home;
 
 public class Round extends Shape {
-    private double a;
-    private double r;
-    private Point forRou = new Point();
+    private Point a;
+    private Point r;
 
-    public Round(double a, double r) {
+
+    public Round(Point a, Point r) {
         this.a = a;
         this.r = r;
     }
-
     public Round() {
     }
-    public double getA() {
+
+    public Point getA() {
         return a;
     }
-    public void setA(double a) {
+    public void setA(Point a) {
         this.a = a;
     }
-    public double getR() {
+    public Point getR() {
         return r;
     }
-    public void setR(double r) {
+    public void setR(Point r) {
         this.r = r;
     }
     @Override
     public double getArea() {
-        double area = 2 * Math.PI * r * r;
+        double area = 2 * Math.PI * r.getDistance(a,r) * r.getDistance(a,r);
         return area;
 
     }
     @Override
     public double getPerimetr() {
-        double per = 2 * Math.PI * r;
+        double per = 2 * Math.PI * r.getDistance(a,r);
         return per;
     }
 

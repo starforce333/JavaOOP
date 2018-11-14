@@ -13,9 +13,9 @@ public class Point {
     public Point() {
     }
 
-    public double getDistance(double x, double y) {
+    public double getDistance(Point a, Point b) {
         double distance;
-        distance = x - y;
+        distance = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
         return distance;
     }
 

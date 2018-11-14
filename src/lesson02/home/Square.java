@@ -1,60 +1,55 @@
 package lesson02.home;
 
 public class Square extends Shape {
-    private double a;
-    private double b;
-    private double c;
-    private double d;
-    private Point forSqr = new Point();
+    private Point a;
+    private Point b;
+    private Point c;
+    private Point d;
 
-    public Square(double a, double b, double c, double d) {
 
+    public Square(Point a, Point b, Point c, Point d) {
         this.a = a;
         this.b = b;
         this.c = c;
         this.d = d;
     }
-
     public Square() {
     }
 
-    public double getA() {
+    public Point getA() {
         return a;
     }
-    public void setA(double a) {
+    public void setA(Point a) {
         this.a = a;
     }
-    public double getB() {
+    public Point getB() {
         return b;
     }
-    public void setB(double b) {
+    public void setB(Point b) {
         this.b = b;
     }
-    public double getC() {
+    public Point getC() {
         return c;
     }
-    public void setC(double c) {
+    public void setC(Point c) {
         this.c = c;
     }
-    public double getD() {
+    public Point getD() {
         return d;
     }
-    public void setD(double d) {
+    public void setD(Point d) {
         this.d = d;
     }
 
-    public Point getForSqr() {
-        return forSqr;
-    }
 
     @Override
     public double getArea() {
-        double area = a * b;
+        double area = a.getDistance(a, b) * b.getDistance(b, c);
         return area;
     }
     @Override
     public double getPerimetr() {
-        double per = a + b + c + d;
+        double per = 2 * a.getDistance(a, b) * b.getDistance(b, c);
         return per;
     }
 

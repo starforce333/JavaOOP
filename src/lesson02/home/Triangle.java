@@ -2,48 +2,48 @@ package lesson02.home;
 
 public class Triangle extends Shape {
 
-    private double a;
-//    private Point a;
-    private double b;
-    private double c;
-    private Point forTri = new Point();
+    private Point a;
+    private Point b;
+    private Point c;
 
-    public Triangle(double a, double b, double c) {
+
+    public Triangle(Point a, Point b, Point c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
-
     public Triangle() {
     }
 
-    public double getA() {
+    public Point getA() {
         return a;
     }
-    public void setA(double a) {
+    public void setA(Point a) {
         this.a = a;
     }
-    public double getB() {
+    public Point getB() {
         return b;
     }
-    public void setB(double b) {
+    public void setB(Point b) {
         this.b = b;
     }
-    public double getC() {
+    public Point getC() {
         return c;
     }
-    public void setC(double c) {
+    public void setC(Point c) {
         this.c = c;
     }
+
+
     @Override
     public double getArea() {
-        double per = (a + b + c) / 2;
-        double area = Math.sqrt(per * (per - a) * (per - b) * (per - c));
+        double per = (a.getDistance(a, b) + b.getDistance(b, c) + c.getDistance(c, a)) / 2;
+        double area = Math.sqrt(per * (per - a.getDistance(a, b)) * (per - b.getDistance(b, c)) * (per - c.getDistance(c, a)));
         return area;
     }
     @Override
     public double getPerimetr() {
-        double per = a + b + c;
+        double per = (a.getDistance(a, b) + b.getDistance(b, c) + c.getDistance(c, a));
         return per;
     }
 
