@@ -2,6 +2,7 @@ package lesson03.home;
 
 import lesson03.home.exception.MaxGroupException;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -46,7 +47,6 @@ public class Main {
         System.out.println(group242.studentSearch("Hello"));
         System.out.println(group242.studentSearch("Skywalker"));
         System.out.println(group242.studentSearch(five.getSurname()));
-
 
     }
 }

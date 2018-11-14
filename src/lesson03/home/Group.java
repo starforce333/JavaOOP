@@ -55,15 +55,9 @@ public class Group {
 
     @Override
     public String toString() {
-        String students = "Group: " + System.lineSeparator();
-//        for (int i = 0; i < group.length; i++) {
-//            students += group[i].getSurname() + System.lineSeparator();
 
-//        }
-//        return students;
-              return  Arrays.toString(group);
+        return "Group{" +
+                "group=" + Arrays.toString(group) +
+                '}';
     }
 }
-
-//         Определите метод toString()для группы так,что бы он выводил список
-//        студентов в алфавитном порядке.
