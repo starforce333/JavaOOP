@@ -65,9 +65,21 @@ public class Group {
         return "We don't have student " + surname.getSurname() + ". Ask another group.";
     }
 
+    public Student[] moveNull() {
+        int a = 0;
+        Student[] tempGroup = new Student[group.length];
+        for (int i = 0; i < group.length; i++) {
+            if (group[i] != null) {
+                tempGroup[a] = group[i];
+                a++;
+            }
+        }
+        return tempGroup;
+    }
 
     @Override
     public String toString() {
+        group = moveNull();
         return "Group has " + count + " students:" + System.lineSeparator() + Arrays.toString(group);
     }
 }
