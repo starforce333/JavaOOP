@@ -3,7 +3,6 @@ package lesson03.home;
 import lesson03.home.exception.MaxGroupException;
 
 
-
 public class Group {
     private Student[] group = new Student[10];
     private int count;
@@ -45,7 +44,7 @@ public class Group {
     public void studentDelete(Student surname) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                if (group[i].equals(surname)) {
+                if (group[i].getSurname().equals(surname)) {
                     group[i] = null;
                     count--;
                 }
@@ -56,7 +55,7 @@ public class Group {
     public String studentSearch(Student surname) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                if (group[i].equals(surname)) {
+                if (group[i].getSurname().equals(surname)) {
                     return "There is a student " + surname.getSurname() + " " + surname.getName() + " in this group.";
                 }
             }
@@ -73,9 +72,7 @@ public class Group {
             } else {
                 str += group[i] + System.lineSeparator();
             }
-
         }
-//        return "Group: " + System.lineSeparator() + Arrays.toString(group);
         return str;
     }
 

@@ -14,7 +14,7 @@ public class Main {
         Student four = new Student("Darth", "Vader", "male", 33, "Academy", 242);
         Student five = new Student("Solo", "Han", "male", 31, "Academy", 242);
         Student six = new Student("Master", "Yoda", "male", 700, "Academy", 242);
-        Student seven = new Student("Kenobi", "ObiVan", "male", 35, "Academy", 242);
+        Student seven = new Student("Kenobi", "Obi-Wan", "male", 35, "Academy", 242);
         Student eight = new Student("Solo", "Lea", "female", 29, "Academy", 242);
         Student nine = new Student("Skywalker", "Luke", "male", 29, "Academy", 242);
         Student ten = new Student("C3PO", "Droid", "male", 20, "Academy", 242);
@@ -37,6 +37,7 @@ public class Main {
         } catch (MaxGroupException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("There are " + group242.getCount() + " students in this group.");
 
         System.out.println(group242);
         System.out.println();
@@ -44,7 +45,7 @@ public class Main {
         group242.studentDelete(seven);
         System.out.println();
 //        group242.sortByLastName();
-        System.out.println(group242.getCount());
+        System.out.println("There are " + group242.getCount() + " students in this group.");
         System.out.println(group242);
         System.out.println();
         System.out.println(group242.studentSearch(eleven));

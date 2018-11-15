@@ -33,8 +33,6 @@ public class Student extends Human {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "surname=" + getSurname() + ", Name=" + getName() +
-                '}';
+        return "Student " + getSurname() + " " + getName();
     }
 }
