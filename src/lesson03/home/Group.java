@@ -3,6 +3,7 @@ package lesson03.home;
 import lesson03.home.exception.MaxGroupException;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 
 public class Group {

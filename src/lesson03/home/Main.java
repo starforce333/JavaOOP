@@ -47,6 +47,5 @@ public class Main {
         System.out.println();
         System.out.println(group242.studentSearch(eleven));
         System.out.println(group242.studentSearch(five));
-
     }
 }
