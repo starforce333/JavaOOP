@@ -2,13 +2,17 @@ package lesson03.home;
 
 import lesson03.home.exception.MaxGroupException;
 
+import java.util.Arrays;
+
 
 public class Group {
     private Student[] group = new Student[10];
+    private int count;
 
 
-    public Group(Student[] group) {
+    public Group(Student[] group, int count) {
         this.group = group;
+        this.count = count;
     }
 
     public Group() {
@@ -22,23 +26,30 @@ public class Group {
         this.group = group;
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public Student[] studentAdd(Student student) throws MaxGroupException {
         for (int i = 0; i < group.length; i++) {
             if (group[i] == null) {
                 group[i] = student;
+                count++;
                 return group;
             }
         }
         throw new MaxGroupException();
     }
 
-    public void studentDelete(Student surname) {
+    public void studentDelete(Student student) {
         for (int i = 0; i < group.length; i++) {
-            if (group[i] != null) {
-                if (group[i].getSurname().equals(surname)) {
-                    group[i] = null;
-                }
+            if (group[i] == student) {
+                group[i] = null;
+                count--;
             }
         }
     }
@@ -54,18 +65,9 @@ public class Group {
         return "We don't have student " + surname.getSurname() + ". Ask another group.";
     }
 
+
     @Override
     public String toString() {
-        String str = "";
-        for (int i = 0; i < group.length; i++) {
-            if (group[i] == null) {
-                break;
-            } else {
-                str += group[i] + System.lineSeparator();
-            }
-        }
-        return str;
+        return "Group has " + count + " students:" + System.lineSeparator() + Arrays.toString(group);
     }
-
-
 }

@@ -43,7 +43,6 @@ public class Main {
         group242.studentDelete(two);
         group242.studentDelete(seven);
         System.out.println();
-//        group242.sortByLastName();
         System.out.println(group242);
         System.out.println();
         System.out.println(group242.studentSearch(eleven));
