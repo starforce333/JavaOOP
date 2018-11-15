@@ -2,9 +2,8 @@ package lesson03.home;
 
 import lesson03.home.exception.MaxGroupException;
 
-import java.util.Arrays;
-import java.util.Comparator;
 
+import java.util.Arrays;
 
 public class Group {
     private Student[] group = new Student[10];
