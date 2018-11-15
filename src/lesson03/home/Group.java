@@ -5,7 +5,7 @@ import lesson03.home.exception.MaxGroupException;
 
 public class Group {
     private Student[] group = new Student[10];
-    private int count;
+
 
     public Group(Student[] group) {
         this.group = group;
@@ -22,19 +22,11 @@ public class Group {
         this.group = group;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
 
     public Student[] studentAdd(Student student) throws MaxGroupException {
         for (int i = 0; i < group.length; i++) {
             if (group[i] == null) {
                 group[i] = student;
-                count++;
                 return group;
             }
         }
@@ -46,7 +38,6 @@ public class Group {
             if (group[i] != null) {
                 if (group[i].getSurname().equals(surname)) {
                     group[i] = null;
-                    count--;
                 }
             }
         }
@@ -55,12 +46,12 @@ public class Group {
     public String studentSearch(Student surname) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                if (group[i].getSurname().equals(surname)) {
-                    return "There is a student " + surname.getSurname() + " " + surname.getName() + " in this group.";
+                if (group[i].equals(surname)) {
+                    return "There is a student " + surname.getSurname() + " in this group.";
                 }
             }
         }
-        return "We don't have student " + surname.getSurname() + " " + surname.getName() + ". Ask another group.";
+        return "We don't have student " + surname.getSurname() + ". Ask another group.";
     }
 
     @Override

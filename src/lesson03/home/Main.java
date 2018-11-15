@@ -37,7 +37,6 @@ public class Main {
         } catch (MaxGroupException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("There are " + group242.getCount() + " students in this group.");
 
         System.out.println(group242);
         System.out.println();
@@ -45,7 +44,6 @@ public class Main {
         group242.studentDelete(seven);
         System.out.println();
 //        group242.sortByLastName();
-        System.out.println("There are " + group242.getCount() + " students in this group.");
         System.out.println(group242);
         System.out.println();
         System.out.println(group242.studentSearch(eleven));
