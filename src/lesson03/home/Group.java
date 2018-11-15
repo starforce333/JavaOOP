@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 public class Group {
     private Student[] group = new Student[10];
+    private int count;
 
     public Group(Student[] group) {
         this.group = group;
@@ -26,38 +27,40 @@ public class Group {
         for (int i = 0; i < group.length; i++) {
             if (group[i] == null) {
                 group[i] = student;
+                count++;
                 return group;
             }
         }
         throw new MaxGroupException();
     }
 
-    public void studentDelete(String surname) {
+    public void studentDelete(Student surname) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                if (group[i].getSurname() == surname) {
+                if (group[i].equals(surname)) {
                     group[i] = null;
+                    count--;
                 }
             }
         }
     }
 
-    public String studentSearch(String surname) {
+    public String studentSearch(Student surname) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                if (group[i].getSurname() == surname) {
-                    return "There is a student " + surname + " in this group.";
+                if (group[i].equals(surname)) {
+                    return "There is a student " + surname.getSurname() + " " + surname.getName() + " in this group.";
                 }
             }
         }
-        return "We don't have student " + surname + ". Ask another group.";
+        return "We don't have student " + surname.getSurname() + " " + surname.getName() + ". Ask another group.";
     }
+
 
     @Override
     public String toString() {
 
-        return "Group{" +
-                "group=" + Arrays.toString(group) +
-                '}';
+        return "Group: " + System.lineSeparator() +
+                Arrays.toString(group);
     }
 }

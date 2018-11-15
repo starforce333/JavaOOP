@@ -40,13 +40,13 @@ public class Main {
 
         System.out.println(group242);
         System.out.println();
-        group242.studentDelete(two.getSurname());
-        group242.studentDelete("Kenobi");
+        group242.studentDelete(two);
+        group242.studentDelete(seven);
+
         System.out.println(group242);
         System.out.println();
-        System.out.println(group242.studentSearch("Hello"));
-        System.out.println(group242.studentSearch("Skywalker"));
-        System.out.println(group242.studentSearch(five.getSurname()));
+        System.out.println(group242.studentSearch(eleven));
+        System.out.println(group242.studentSearch(five));
 
     }
 }

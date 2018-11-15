@@ -1,7 +1,7 @@
 package lesson02.home;
 
 public class Board {
-    Shape[] board = new Shape[4];
+   private Shape[] board = new Shape[4];
 
     public Board() {
     }
@@ -17,7 +17,7 @@ public class Board {
 
     public void removeFigure(Shape figure) {
         for (int i = 0; i < board.length; i++) {
-            if (board[i] == figure) {
+            if (board[i].equals(figure)) {
                 board[i] = null;
                 break;
             }
