@@ -88,7 +88,6 @@ public class Group {
 
     @Override
     public String toString() {
-//        group = moveNull();
         sort(group);
         int num = 0;
         String str = "Group has " + count + " students:" + System.lineSeparator();
