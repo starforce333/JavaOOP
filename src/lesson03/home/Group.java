@@ -34,35 +34,38 @@ public class Group {
         this.count = count;
     }
 
-    public Student[] studentAdd(Student student) throws MaxGroupException {
+    public void studentAdd(Student student) throws MaxGroupException {
+        if (student == null) {
+            throw new IllegalArgumentException("Null student");
+        }
         for (int i = 0; i < group.length; i++) {
             if (group[i] == null) {
                 group[i] = student;
                 count++;
-                return group;
+                return;
             }
         }
         throw new MaxGroupException();
     }
 
-    public void studentDelete(Student student) {
+    public void studentDelete(String surname) {
         for (int i = 0; i < group.length; i++) {
-            if (group[i] == student) {
+            if (group[i].getSurname() == surname) {
                 group[i] = null;
                 count--;
             }
         }
     }
 
-    public String studentSearch(Student surname) {
+    public String studentSearch(String surname) {
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null) {
-                if (group[i].equals(surname)) {
-                    return "There is a student " + surname.getSurname() + " in this group.";
+                if (group[i].getSurname().equals(surname)) {
+                    return "There is a student " + surname + " in this group.";
                 }
             }
         }
-        return "We don't have student " + surname.getSurname() + ". Ask another group.";
+        return "We don't have student " + surname + ". Ask another group.";
     }
 
     public Student[] moveNull() {
@@ -76,6 +79,26 @@ public class Group {
         }
         return tempGroup;
     }
+
+//    private void sort() {
+//        for (int i = 0; i < group.length; i++) {
+//            if (group[i] !=null && )
+//            //bubbles
+//        }
+//    }
+
+//    private int compare(Student a, Student b) {
+//        if (a != null && b == null) {
+//            return 1;
+//        }
+//        if (a == null && b != null) {
+//            return -1;
+//        }
+//        if (a == null && b == null) {
+//            return 0;
+//        } return "Error"
+//    }
+
 
     @Override
     public String toString() {
