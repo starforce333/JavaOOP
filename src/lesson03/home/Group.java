@@ -2,7 +2,6 @@ package lesson03.home;
 
 import lesson03.home.exception.MaxGroupException;
 
-
 import java.util.Arrays;
 
 public class Group {
@@ -50,7 +49,10 @@ public class Group {
 
     public void studentDelete(String surname) {
         for (int i = 0; i < group.length; i++) {
-            if (group[i].getSurname() == surname) {
+            if (group[i] == null) {
+                continue;
+            }
+            if (group[i].getSurname().equals(surname)) {
                 group[i] = null;
                 count--;
             }
@@ -68,41 +70,34 @@ public class Group {
         return "We don't have student " + surname + ". Ask another group.";
     }
 
-    public Student[] moveNull() {
-        int a = 0;
-        Student[] tempGroup = new Student[group.length];
+    private void sort(Student[] group) {
         for (int i = 0; i < group.length; i++) {
-            if (group[i] != null) {
-                tempGroup[a] = group[i];
-                a++;
+            for (int j = 0; j < group.length - 1; j++) {
+                try {
+                    if (group[j].getSurname().compareTo(group[j + 1].getSurname()) > 0) {
+                        Student temp = group[j];
+                        group[j] = group[j + 1];
+                        group[j + 1] = temp;
+                    }
+                } catch (NullPointerException e) {
+
+                }
             }
         }
-        return tempGroup;
     }
-
-//    private void sort() {
-//        for (int i = 0; i < group.length; i++) {
-//            if (group[i] !=null && )
-//            //bubbles
-//        }
-//    }
-
-//    private int compare(Student a, Student b) {
-//        if (a != null && b == null) {
-//            return 1;
-//        }
-//        if (a == null && b != null) {
-//            return -1;
-//        }
-//        if (a == null && b == null) {
-//            return 0;
-//        } return "Error"
-//    }
-
 
     @Override
     public String toString() {
-        group = moveNull();
-        return "Group has " + count + " students:" + System.lineSeparator() + Arrays.toString(group);
+//        group = moveNull();
+        sort(group);
+        int num = 0;
+        String str = "Group has " + count + " students:" + System.lineSeparator();
+        for (int i = 0; i < group.length; i++) {
+            if (group[i] != null) {
+                num++;
+                str += num + ") " + group[i] + System.lineSeparator();
+            }
+        }
+        return str;
     }
 }

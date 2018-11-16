@@ -42,6 +42,7 @@ public class Main {
         System.out.println();
         group242.studentDelete(two.getSurname());
         group242.studentDelete(seven.getSurname());
+        group242.studentDelete(one.getSurname());
         System.out.println();
         System.out.println(group242);
         System.out.println();

@@ -3,12 +3,12 @@ package lesson03.home;
 public class Student extends Human {
 
     private String university;
-    private int group;
+    private int id;
 
-    public Student(String surname, String name, String sex, int age, String university, int group) {
+    public Student(String surname, String name, String sex, int age, String university, int id) {
         super(surname, name, sex, age);
         this.university = university;
-        this.group = group;
+        this.id = id;
     }
 
     public Student() {
@@ -22,12 +22,12 @@ public class Student extends Human {
         this.university = university;
     }
 
-    public int getGroup() {
-        return group;
+    public int getId() {
+        return id;
     }
 
-    public void setGroup(int group) {
-        this.group = group;
+    public void setId(int id) {
+        this.id = id;
     }
 
 
