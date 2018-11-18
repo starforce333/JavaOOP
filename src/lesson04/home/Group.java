@@ -2,10 +2,14 @@ package lesson04.home;
 
 import lesson04.home.exception.MaxGroupException;
 
-public class Group implements Comparable{
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Group implements Militarist {
     private Student[] group = new Student[10];
     private int count;
-
 
     public Group(Student[] group, int count) {
         this.group = group;
@@ -31,7 +35,44 @@ public class Group implements Comparable{
         this.count = count;
     }
 
-    public void studentAdd(Student student) throws MaxGroupException {
+    public void studentAdd() {
+        try {
+            int a = Integer.valueOf(JOptionPane.showInputDialog("How many students you want to add? NO more than " + (group.length - count)));
+            if (a > group.length - count) {
+                throw new MaxGroupException();
+            }
+            if (a < 0) {
+                throw new NullPointerException();
+            }
+            if (a == 0) {
+                JOptionPane.showMessageDialog(null, "Continue without adding students");
+            }
+            for (int i = 0; i < a; i++) {
+                Student student = new Student();
+                student.setSurname(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " surname")));
+                student.setName(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " name")));
+                student.setSex(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " sex (male or female)")));
+                student.setUniversity(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " university")));
+                student.setAge(Integer.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " age")));
+                student.setId(Integer.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " ID")));
+                for (int j = 0; j < group.length; j++) {
+                    if (group[j] == null) {
+                        group[j] = student;
+                        count++;
+                        break;
+                    }
+                }
+            }
+        } catch (MaxGroupException e) {
+            JOptionPane.showMessageDialog(null, "Enter number less than " + (group.length - count));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error number format");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Cancel");
+        }
+    }
+
+    public void studentAdd(Student student) {
         if (student == null) {
             throw new IllegalArgumentException("Null student");
         }
@@ -42,7 +83,6 @@ public class Group implements Comparable{
                 return;
             }
         }
-        throw new MaxGroupException();
     }
 
     public void studentDelete(String surname) {
@@ -68,27 +108,52 @@ public class Group implements Comparable{
         return "We don't have student " + surname + ". Ask another group.";
     }
 
-    private void sort(Student[] group) {
-
+    private void sortBySurname() {
+        for (int i = 0; i < group.length - 1; i++) {
+            for (int j = i + 1; j < group.length; j++) {
+                if (compare(group[i], group[j]) > 0) {
+                    Student temp = group[i];
+                    group[i] = group[j];
+                    group[j] = temp;
+                }
+            }
+        }
     }
 
+    public int compare(Object a, Object b) {
+        Student studOne = (Student) a;
+        Student studTwo = (Student) b;
 
-    @Override
-    public int compareTo(Object o) {
-        Student other = (Student) o;
-
-        if (this.getAge > other.getAge()) {
+        if (a != null && b == null) {
             return 1;
         }
-        if (this.getId() < other.getAge()) {
+        if (a == null && b != null) {
             return -1;
         }
-        return 0;
+        if (a == null && b == null) {
+            return 0;
+        }
+        return studOne.getSurname().compareTo(studTwo.getSurname());
+    }
+
+    public void sort(int type) {
+        Arrays.sort(group, new StudentCompare(type));
+    }
+
+    @Override
+    public ArrayList getRecruit() {
+        ArrayList recruits = new ArrayList();
+        for (int i = 0; i < group.length; i++) {
+            if (group[i] != null && group[i].getSex().equals("male") && group[i].getAge() > 18) {
+                recruits.add(group[i]);
+            }
+        }
+        return recruits;
     }
 
     @Override
     public String toString() {
-        sort(group);
+//        sortBySurname();
         int num = 0;
         String str = "Group has " + count + " students:" + System.lineSeparator();
         for (int i = 0; i < group.length; i++) {

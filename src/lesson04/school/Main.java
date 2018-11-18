@@ -25,8 +25,7 @@ public class Main {
         }
 
         System.out.println();
-        comp.connectToUsb(flashOne);
-        System.out.println();
+
 
         Arrays.sort(array, (a, b) -> a.getVendor().compareTo(b.getVendor()));
 
@@ -35,6 +34,7 @@ public class Main {
 
         }
         System.out.println();
-
+        comp.connectToUsb(flashOne);
+        System.out.println();
     }
 }
