@@ -2,9 +2,6 @@ package lesson03.home;
 
 import lesson03.home.exception.MaxGroupException;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
 

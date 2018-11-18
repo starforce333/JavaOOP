@@ -3,7 +3,6 @@ package lesson04.home;
 import lesson04.home.exception.MaxGroupException;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
