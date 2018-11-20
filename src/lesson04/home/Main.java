@@ -42,8 +42,8 @@ public class Main {
         System.out.println();
         System.out.println("Ready to army " + group242.getRecruit().length + " students:");
         System.out.println(Arrays.toString(group242.getRecruit()));
-//        System.out.println();
-//        System.out.println("Ready to army " + group242.getRecruitUpd().size() + " students:");
-//        System.out.println(group242.getRecruitUpd());
+        System.out.println();
+        System.out.println("Ready to army " + group242.getRecruitUpd().size() + " students:");
+        System.out.println(group242.getRecruitUpd());
     }
 }
