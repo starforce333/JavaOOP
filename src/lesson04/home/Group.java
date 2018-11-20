@@ -69,13 +69,14 @@ public class Group implements Militarist {
             student.setUniversity(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " university")));
             student.setAge(Integer.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " age")));
             student.setId(Integer.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " ID")));
-            for (int j = 0; j < group.length; j++) {
-                if (group[j] == null) {
-                    group[j] = student;
-                    count++;
-                    break;
-                }
-            }
+            studentAdd(student);
+//            for (int j = 0; j < group.length; j++) {
+//                if (group[j] == null) {
+//                    group[j] = student;
+//                    count++;
+//                    break;
+//                }
+//            }
         }
     }
 
@@ -148,16 +149,20 @@ public class Group implements Militarist {
     }
 
     public Student[] getRecruit() {
-        Student[] temp = new Student[group.length];
         int sCount = 0;
         for (int i = 0; i < group.length; i++) {
             if (group[i] != null && group[i].getSex().equals("male") && group[i].getAge() >= 18) {
-                temp[sCount] = group[i];
                 sCount++;
             }
         }
         Student[] recruits = new Student[sCount];
-        recruits = Arrays.copyOfRange(temp, 0, sCount);
+        int num = 0;
+        for (int i = 0; i < group.length; i++) {
+            if (group[i] != null && group[i].getSex().equals("male") && group[i].getAge() >= 18) {
+                recruits[num] = group[i];
+                num++;
+            }
+        }
         return recruits;
     }
 
