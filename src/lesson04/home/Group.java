@@ -5,6 +5,7 @@ import lesson04.home.exception.MaxGroupException;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Group implements Militarist {
     private Student[] group = new Student[10];
@@ -40,10 +41,7 @@ public class Group implements Militarist {
             if (a > group.length - count) {
                 throw new MaxGroupException();
             }
-            if (a < 0) {
-                throw new NullPointerException();
-            }
-            if (a == 0) {
+            if (a <= 0) {
                 JOptionPane.showMessageDialog(null, "Continue without adding students");
             }
             for (int i = 0; i < a; i++) {
@@ -139,16 +137,30 @@ public class Group implements Militarist {
         Arrays.sort(group, new StudentCompare(type));
     }
 
-    @Override
-    public ArrayList getRecruit() {
-        ArrayList recruits = new ArrayList();
+    public Student[] getRecruit() {
+        Student[] temp = new Student[group.length];
+        int sCount = 0;
         for (int i = 0; i < group.length; i++) {
-            if (group[i] != null && group[i].getSex().equals("male") && group[i].getAge() > 18) {
+            if (group[i] != null && group[i].getSex().equals("male") && group[i].getAge() >= 18) {
+                temp[sCount] = group[i];
+                sCount++;
+            }
+        }
+        Student[] recruits = new Student[sCount];
+        recruits = Arrays.copyOfRange(temp, 0, sCount);
+        return recruits;
+    }
+
+    public List<Student> getRecruitUpd() {
+        List<Student> recruits = new ArrayList<>();
+        for (int i = 0; i < group.length; i++) {
+            if (group[i] != null && group[i].getSex().equals("male") && group[i].getAge() >= 18) {
                 recruits.add(group[i]);
             }
         }
         return recruits;
     }
+
 
     @Override
     public String toString() {
