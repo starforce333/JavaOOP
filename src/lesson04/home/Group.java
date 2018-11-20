@@ -36,36 +36,46 @@ public class Group implements Militarist {
     }
 
     public void studentAdd() {
+
         try {
-            int a = Integer.valueOf(JOptionPane.showInputDialog("How many students you want to add? NO more than " + (group.length - count)));
-            if (a > group.length - count) {
+
+            int numStudents = Integer.valueOf(JOptionPane.showInputDialog("How many students you want to add? NO more than " + (group.length - count)));
+
+            if (numStudents > group.length - count) {
                 throw new MaxGroupException();
             }
-            if (a <= 0) {
+
+            if (numStudents <= 0) {
                 JOptionPane.showMessageDialog(null, "Continue without adding students");
             }
-            for (int i = 0; i < a; i++) {
-                Student student = new Student();
-                student.setSurname(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " surname")));
-                student.setName(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " name")));
-                student.setSex(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " sex (male or female)")));
-                student.setUniversity(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " university")));
-                student.setAge(Integer.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " age")));
-                student.setId(Integer.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " ID")));
-                for (int j = 0; j < group.length; j++) {
-                    if (group[j] == null) {
-                        group[j] = student;
-                        count++;
-                        break;
-                    }
-                }
-            }
+
+            inputData(numStudents);
+
         } catch (MaxGroupException e) {
             JOptionPane.showMessageDialog(null, "Enter number less than " + (group.length - count));
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Error number format");
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Cancel");
+        }
+    }
+
+    private void inputData(int a) {
+        for (int i = 0; i < a; i++) {
+            Student student = new Student();
+            student.setSurname(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " surname")));
+            student.setName(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " name")));
+            student.setSex(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " sex (male or female)")));
+            student.setUniversity(String.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " university")));
+            student.setAge(Integer.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " age")));
+            student.setId(Integer.valueOf(JOptionPane.showInputDialog("Enter student's " + (i + 1) + " ID")));
+            for (int j = 0; j < group.length; j++) {
+                if (group[j] == null) {
+                    group[j] = student;
+                    count++;
+                    break;
+                }
+            }
         }
     }
 
