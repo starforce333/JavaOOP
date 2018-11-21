@@ -1,8 +1,9 @@
-package lesson04.home;
+package lesson05.home;
 
-import lesson04.home.exception.MaxGroupException;
+import lesson05.home.exception.MaxGroupException;
 
 import javax.swing.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -168,6 +169,21 @@ public class Group implements Militarist {
         return recruits;
     }
 
+    public void saveToFile() {
+        File file = new File("myGroup.csv");
+        try (PrintWriter pw = new PrintWriter(file)) {
+            String table = "";
+            for (int i = 0; i < group.length; i++) {
+                if (group[i] != null) {
+                    table += group[i].getSurname() + ";" + group[i].getName() + ";" + group[i].getAge() + ";"
+                            + group[i].getSex() + ";" + System.lineSeparator();
+                }
+            }
+            pw.println(table);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public String toString() {
