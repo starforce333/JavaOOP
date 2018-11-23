@@ -1,7 +1,6 @@
 package lesson05.home;
 
 import java.io.*;
-import java.util.Arrays;
 
 public class Merge {
 
@@ -17,8 +16,6 @@ public class Merge {
         System.out.println("One: " + System.lineSeparator() + one);
         System.out.println("Two: " + System.lineSeparator() + two);
         System.out.println();
-        System.out.println(Arrays.toString(oneArr));
-        System.out.println(Arrays.toString(twoArr));
 
         System.out.println("Result: " + check(oneArr, twoArr));
 
@@ -37,7 +34,7 @@ public class Merge {
         String result = "";
         for (int i = 0; i < oneArr.length; i++) {
             for (int j = 0; j < twoArr.length; j++) {
-                if (oneArr[i].equalsIgnoreCase(twoArr[j])) {
+                if (oneArr[i].equalsIgnoreCase(twoArr[j]) && !result.contains(oneArr[i])) {
                     result += oneArr[i] + " ";
                 }
             }
