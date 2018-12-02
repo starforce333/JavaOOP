@@ -7,6 +7,7 @@ public class ArraySum implements Runnable {
     private int[] array = new int[100];
     private int sumOne = 0;
     private int sumTwo = 0;
+    private long time = 0;
 
 
     public ArraySum() {
@@ -64,8 +65,11 @@ public class ArraySum implements Runnable {
             }
         }
         long end = System.nanoTime();
-        System.out.println("Threads sum time: " + (end - start) + " ms");
-        System.out.println(sumTwo);
+        time += (end - start);
+        if (threadNum == 3) {
+            System.out.println("Threads sum time: " + time + " ms");
+            System.out.println(sumTwo);
+        }
     }
 
     @Override

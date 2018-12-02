@@ -5,9 +5,9 @@ public class MainSum {
     public static void main(String[] args) {
 
         ArraySum sum = new ArraySum();
-        System.out.println(sum);
+//        System.out.println(sum);
         sum.randomFill();
-        System.out.println(sum);
+//        System.out.println(sum);
         System.out.println("Simple");
         sum.simpleSum();
 
