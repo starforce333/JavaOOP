@@ -1,0 +1,4 @@
+build|строить
+this|это
+house|дом
+they|они
