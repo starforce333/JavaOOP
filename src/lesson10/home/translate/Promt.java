@@ -9,9 +9,17 @@ import java.util.Set;
 
 public class Promt {
     private Map<String, String> myMap = new HashMap<>();
-    private DicUpdate update;
+
 
     public Promt() {
+    }
+
+    public Map<String, String> getMyMap() {
+        return myMap;
+    }
+
+    public void setMyMap(Map<String, String> myMap) {
+        this.myMap = myMap;
     }
 
     public String loadFile(File file) {
@@ -112,5 +120,12 @@ public class Promt {
             translation.append(myMap.get(s) + " ");
         }
         return translation.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Promt{" +
+                "myMap=" + myMap +
+                '}';
     }
 }
