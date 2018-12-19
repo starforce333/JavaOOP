@@ -1,41 +1,76 @@
 package lesson11.school;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.UnknownHostException;
+import java.util.HashSet;
 import java.util.Set;
 
 public class URLS {
 
-    public static void deleteDuplicates(File in, File out) {
-        Map<String, Integer> myMap = fileToMap(in);
-        StringBuilder noDuplicates = new StringBuilder();
-        Set<String> keys = myMap.keySet();
-        for (String key : keys) {
-            noDuplicates.append(key + System.lineSeparator());
+    private String link;
+    private String status;
+    Set<String> list;
+
+
+    public URLS(String link, String status, Set<String> list) {
+        this.link = link;
+        this.status = status;
+        this.list = list;
+    }
+
+    public URLS() {
+    }
+
+    public static Set<String> deleteDuplicates(File in, File out) {
+        Set<String> list = new HashSet<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(in))) {
+            String str = "";
+            for (; (str = br.readLine()) != null; ) {
+                list.add(str);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        noDuplicates.setLength(noDuplicates.length() - 2);
+        System.out.println(list);
+        System.out.println(list.size());
+        saveFile(list, out);
+        return list;
+    }
+
+    private static void saveFile(Set<String> list, File out) {
+        StringBuilder sb = new StringBuilder();
+
+        list.forEach((value) -> sb.append(value + System.lineSeparator()));
+        String clear = sb.toString();
         try (PrintWriter pw = new PrintWriter(out)) {
-            pw.println(noDuplicates.toString());
+            pw.println(clear);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public static Map<String, Integer> fileToMap(File in) {
-        Map<String, Integer> myMap = null;
-        String str = "";
+
+    public static String code(String url) throws IOException {
+        URL urlCon = new URL(url);
+        String code = "";
         try {
-            Scanner sc = new Scanner(in);
-            while (sc.hasNext()) {
-                str = sc.nextLine();
-                myMap.put(str, 1);
-            }
-        } catch (FileNotFoundException | NullPointerException e) {
+            HttpURLConnection connection = (HttpURLConnection) urlCon.openConnection();
+            code = connection.getResponseMessage();
+        } catch (UnknownHostException e) {
+            System.out.println(url + " doesn't exist");
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        return myMap;
+        return code;
+    }
+
+    @Override
+    public String toString() {
+        return "URLS{" +
+                "link='" + link + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

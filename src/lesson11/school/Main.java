@@ -2,8 +2,12 @@ package lesson11.school;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,16 +42,21 @@ public class Main {
 //        }
 //
 //        headers.forEach((key, value) -> System.out.println(key + " - " + value));
+
         File in = new File("urls.txt");
         File out = new File("urls_clear.txt");
-        try {
-            out.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        Set<String> list = URLS.deleteDuplicates(in, out);
 
 
-        URLS.deleteDuplicates(in, out);
-
+        System.out.println(list);
+        System.out.println();
+        list.forEach((value) -> {
+            try {
+                System.out.println(URLS.code(value));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
