@@ -48,6 +48,7 @@ public class Main {
 
         Set<String> list = URLS.deleteDuplicates(in, out);
 
+        System.out.println("Test");
 
         System.out.println(list);
         System.out.println();
